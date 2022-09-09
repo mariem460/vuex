@@ -10,11 +10,13 @@
         <button 
           type="button" 
           class="btn btn-primary btn-lg px-4 gap-3"
+          @click="add"
         >+</button>
       
         <button 
           type="button" 
           class="btn btn-outline-secondary btn-lg px-4"
+          @click="sub"
         >-</button>
 
       </div>
@@ -29,6 +31,17 @@
 export default {
   components:{ 
     count
+
+  },
+  methods:{
+    add(){
+      this.$store.commit('add')
+    },
+    sub(){
+     
+      this.$store.commit('sub')
+     
+    }
 
   }
   
