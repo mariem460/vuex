@@ -8,7 +8,9 @@ const app =  createApp(App);
 const store = createStore({
     state() {
         return {
-            counter: 7
+            counter: 7,
+            prizes:['cola', 'dog', 'flower', 'table']
+        
         }
     },
     mutations:{
@@ -29,6 +31,21 @@ const store = createStore({
 
             }
         }
+    },
+    getters:{
+        getCount(state) {
+            return state.counter
+        },
+        getPrize(state){
+            let prize = '';
+          
+            for(let step=0 ;step<state.counter; step++){
+               prize = state.prizes[Math.floor(Math.random()*state.prizes.length)];
+            }
+            return prize;
+
+        }
+        
     }
 })
 

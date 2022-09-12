@@ -18,6 +18,11 @@
           class="btn btn-outline-secondary btn-lg px-4"
           @click="sub"
         >-</button>
+        <button 
+        type="button" 
+        class="btn btn-outline-secondary btn-lg px-4"
+        @click="getPrize"
+      >get Prize</button>
 
       </div>
     </div>
@@ -41,6 +46,9 @@ export default {
      
       this.$store.commit('sub')
      
+    },
+    getPrize(){
+      alert(this.$store.getters.getPrize)
     }
 
   }

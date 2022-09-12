@@ -5,7 +5,7 @@
       <div class="col-sm-5">
         <p>
           <strong>
-          {{this.$store.state.counter}}
+          {{this.$store.getters.getCount}}
           </strong>
         </p>
 
