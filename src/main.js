@@ -9,7 +9,8 @@ const store = createStore({
     state() {
         return {
             counter: 7,
-            prizes:['cola', 'dog', 'flower', 'table']
+            prizes:['cola', 'dog', 'flower', 'table'],
+            auth: false
         
         }
     },
@@ -30,6 +31,9 @@ const store = createStore({
                 state.counter--
 
             }
+        },
+        setAuth(state, payload){
+            state.auth = payload.value;
         }
     },
     getters:{
@@ -46,6 +50,23 @@ const store = createStore({
 
         }
         
+    },
+    actions:{
+        authUser(context){
+            console.log('context', context)
+            setTimeout(()=> {
+                context.commit('setAuth', {value: true})
+
+            },5000)
+        },
+        signout(context, payload){
+           
+                context.commit('setAuth', {value: payload})
+
+
+
+        }
+
     }
 })
 
