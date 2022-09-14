@@ -38,6 +38,12 @@ export default {
     count
 
   },
+  computed:{
+    prize(){
+      return this.$store.getters.getPrize
+    }
+
+  },
   methods:{
     add(){
       this.$store.commit('add')
