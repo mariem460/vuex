@@ -5,7 +5,7 @@
     export default{
         computed:{
             computedValue(){
-                return this.$store.getters.getCount
+                return this.$store.getters['count/getCount']
             }
         }
     }
