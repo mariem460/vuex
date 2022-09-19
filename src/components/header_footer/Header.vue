@@ -12,6 +12,12 @@
         <li class="nav-item">
            <router-link to="/admin" class="nav-link">Admin</router-link>
         </li>
+        <li class="nav-item" v-if="!this.$store.state.getters['admin/isAuth']">
+          <div class="nav-link" @click="loginUser">Login</div>
+       </li>
+       <li class="nav-item" v-if="this.$store.getters['admin/isAuth']">
+        <div class="nav-link" @click="logOutUser">Logout</div>
+     </li>
       </ul>
     </header>
   </div>
@@ -19,6 +25,14 @@
 
 <script>
 export default {
+  methods:{
+    loginUser() {
+      this.$store.dispatch('authUser')
+    },
+    logOutUser(){
+      this.$store.dispatch('signout', false)
+    }
+  }
  
 }
 </script>

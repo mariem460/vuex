@@ -5,7 +5,7 @@
       <div class="col-sm-5">
         <p>
           <strong>
-          Change count:0
+          {{this.$store.getters.getCount}}
           </strong>
         </p>
 
@@ -19,10 +19,10 @@
         </div>
         <br/>
 
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary"   @click="addAdmin">
           +
         </button>
-        <button type="button" class="btn btn-outline-secondary">
+        <button type="button" class="btn btn-outline-secondary"   @click="subAdmin">
           -
         </button>
       </div>
@@ -36,6 +36,14 @@ export default {
     data(){
       return {
         amount:1
+      }
+    },
+    methods:{
+      addAdmin(){
+        this.$store.commit('add', {valyeToadd: this.amount})
+      },
+      subAdmin(){
+        this.$store.commit('sub',  {valyeToadd: this.amount})
       }
     }
 }
